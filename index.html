@@ -1,0 +1,70 @@
+<DOCTYPE html> 
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Task number 5</title>
+        <link rel="stylesheet" href="DefaultTask2.css"> 
+    </head>
+    <body class="default">
+<div class="text"> Задача 5</div>
+        <table class="table"> 
+          <tr>
+              <td>
+                  Код программы:</br>
+Файл Counter.java</br>
+import java.util.*;</br>
+
+public class Counter {</br>
+    private static final Set<Character> CONSONANTS = new HashSet<>(Arrays.asList(
+            'б', 'в', 'г', 'д', 'ж', 'з', 'й', 'к', 'л', 'м', 'н', 'п', 'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ'));</br>
+
+    public static void main(String[] args) {</br>
+        Scanner scanner = new Scanner(System.in);</br>
+        System.out.println("Введите текст:");</br>
+        String inputText = scanner.nextLine().toLowerCase();</br>
+
+        String[] words = inputText.split("\\s+");</br>
+
+        Map<Character, Set<String>> consonantOccurrences = new HashMap<>();</br>
+
+        for (String word : words) {</br>
+            Set<Character> consonantsInWord = new HashSet<>(); </br>
+            for (char c : word.toCharArray()) { </br>
+                if (CONSONANTS.contains(c)) { </br>
+                    consonantsInWord.add(c); </br>
+                } </br>
+            } </br>
+            for (char consonant : consonantsInWord) { </br>
+                consonantOccurrences </br>
+                        .computeIfAbsent(consonant, k -> new HashSet<>()) </br>
+                        .add(word); </br>
+            } </br>
+        } </br>
+
+        System.out.println("Согласные, встречающиеся не более чем в двух словах:"); </br>
+        for (Map.Entry<Character, Set<String>> entry : consonantOccurrences.entrySet()) </br> {</br>
+            if (entry.getValue().size() <= 2) { </br>
+                System.out.print(entry.getKey() + " "); </br>
+            } </br>
+        } </br>
+    } </br>
+} </br>
+              </td>
+          </tr>
+<tr> 
+    <td>
+    <p class="text"> Скриншот результата </p>
+    <img class="img" src="https://github.com/newsadness/Task-number-2/blob/main/2.png?raw=true">
+    </td>
+</tr>
+          <tr>
+             <td> 
+                 <a href="https://newsadness.github.io/1st-week/"> 
+                   <button class="button"> назад </button> 
+                 </a> 
+            </td>
+          </tr>
+        </table> 
+    </body>
+</html>
+</DOCTYPE>
